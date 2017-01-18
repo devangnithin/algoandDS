@@ -16,10 +16,15 @@ return 5.
  */
 public class LastWord {
     public int lengthOfLastWord(String s) {
-
+        //if (s.length() == 0 || !s.contains(" ")) return 0;
+        String [] sSplit = s.split(" ");
+        if(sSplit.length <= 0) return 0;
+        return sSplit[sSplit.length-1].length();
     }
 
     public static void main(String args[]) {
+        LastWord l = new LastWord();
+        System.out.print(l.lengthOfLastWord("Hello "));
 
     }
 }
