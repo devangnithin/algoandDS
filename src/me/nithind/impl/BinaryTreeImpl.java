@@ -17,14 +17,16 @@ import me.nithind.ds.BinaryTree;
 public class BinaryTreeImpl {
 
     public void start() {
-        //BinaryTree B = this.buildTree();
+        BinaryTree B = this.buildTree();
 
         //System.out.println(solution(25, 38, B));
-        BinaryTree B = null;
+        /*BinaryTree B = null;
         B = this.add(B, 2);
         this.add(B, 3);
-        this.add(B, 1);
+        this.add(B, 1);*/
         inOrder(B);
+
+        System.out.println("Maximum is "+ max(B));
 
         BinaryTree searchResult = search(B, 3);
         System.out.println("");
@@ -48,6 +50,14 @@ public class BinaryTreeImpl {
         System.out.print("-" + T.getX() + "-");
         inOrder(T.getR());
         return;
+
+    }
+
+    public Integer max(BinaryTree T) {
+        if(T.getR() == null) {
+            return T.getX();
+        }
+        return max(T.getR());
 
     }
 
@@ -100,6 +110,7 @@ public class BinaryTreeImpl {
         return search(B.getR(), x);
 
     }
+
 
     private BinaryTree add(BinaryTree BN, int x) {
         if (BN == null) {
