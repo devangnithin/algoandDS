@@ -25,3 +25,34 @@ public class Kaedance {
         return b;
     }
 }
+
+
+/*
+
+int main()
+{
+   int a[]={-2, 1, -3, 4, -1, 2, 1, -5, 4};
+   int size=sizeof(a)/sizeof(a[0]);
+   int startIndex=0,endIndex=0,i,j;
+   int max_so_far=0,max_sum=-999;
+   for(i=0;i<size;i++)
+   {
+   max_so_far=max_so_far+a[i];//kadane's algorithm step 1
+   if(max_so_far>max_sum) //computing max
+   {
+      max_sum=max_so_far;
+      endIndex=i;
+   }
+
+   if(max_so_far<0)
+   {
+   max_so_far=0;
+   startIndex=i+1;
+   }
+}
+   cout<<max_so_far<<" "<<startIndex<<" "<<endIndex;
+   getchar();
+   return 0;
+}
+
+*/
