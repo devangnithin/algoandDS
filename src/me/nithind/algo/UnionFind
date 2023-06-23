@@ -1,0 +1,48 @@
+class UnionFind {
+    class Union {
+        int[] vals;
+
+        public Union(int n) {
+            vals = new int[n];
+            for(int i=0; i<n; i++) {
+                vals[i] = i;
+            }
+        }
+
+        public int find(int n) {
+            if(vals[n] == n) return n;
+            vals[n] = find(vals[n]);
+            return vals[n];
+        }
+
+        public boolean union(int n1, int n2) {
+            int n1Parent = find(n1);
+            int n2Parent = find(n2);
+            if(n1Parent == n2Parent) return false;
+            vals[n1Parent] = n2Parent;
+            vals[n1Parent] = vals[n2Parent];
+            return true;
+        }
+    }
+    public int earliestAcq(int[][] logs, int n) {
+        int group =n;
+        Union u = new Union(n);
+
+        Arrays.sort(logs, (int[] o1, int[] o2) -> o1[0] - o2[0]);
+
+        for(int i =0; i<logs.length;i++) {
+            if(u.union(logs[i][1], logs[i][2])) {
+                group--;
+            }
+
+            if(group==1) return logs[i][0];
+        }
+
+        return -1;
+    }
+}
+
+
+
+
+
